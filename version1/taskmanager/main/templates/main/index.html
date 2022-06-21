@@ -1,0 +1,63 @@
+{% extends 'main/base.html'%}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/stylesheet.css' %}" type="text/css">
+{% endblock %}
+
+{% block content%}
+
+</div>
+	<div class="main">
+		<h4 class="post-cat", align="left">Добро пожаловать на сервис по формированию и хранению сокращенных ссылок!</h4>
+		<br>
+		<h4>Здесь ты можешь:</h4>
+		<h5>Ввести ссылку в форму для ввода и получить из неё сокращённую ссылку в поле ниже</h5>
+		<h5>Посмотреть полную историю сокращения и очистить её</h5>
+		<br>
+		<div class="image-wrapper">
+				<img src="{% static 'img/1.jpeg' %}" width="300" height="200">
+		</div>
+		<h4 class="post-cat", align="center">Введи свою ссылку</h4>
+		<div class = "post-wrap">
+			<div class = "post-wrap">
+        {% if username %}
+          <form method="post" enctype="multipart/form-data">
+              <br>
+              {% csrf_token %}
+              {{ form.message }}<br>
+              <br>
+              <button type="submit" class = "btn btn-success">Добавить</button>
+              <span>{{error}}</span>
+          </form>
+        {% else %}
+            <p>Для создания отзыва Вам необходимо авторизироваться</p>
+        {%  endif %}
+
+		<br>		<br>
+
+		{% if forums %}
+			{% for el in forums %}
+				<div class="container1 mt-2">
+					<p>{{el.message}}</p>
+					<h4 class="post-title2">{{el.created}} </h4>
+				</div>
+			{% endfor %}
+		{% else %}
+		<p>У нас нет отзывов</p>
+		{% endif %}
+</div>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>		<br>
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}
+
