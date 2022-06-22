@@ -1,0 +1,56 @@
+{% extends 'main/base.html'%}
+{% load static %}
+
+{% block title%}
+{{ title }}
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/styleforum.css' %}" type="text/css">
+<style>
+   .img {
+    float:left; /* Выравнивание по левому краю */
+    margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+   }
+   }
+  </style>
+{% endblock %}
+
+
+{% block content%}
+
+</div>
+	<div class="main">
+		<h4 class="post-cat", align="left">Добро пожаловать на сервис по формированию и хранению сокращенных ссылок!</h4>
+		<br>
+		<h4>Здесь ты можешь:</h4>
+		<h5>Ввести ссылку в форму для ввода и получить из неё сокращённую ссылку в поле ниже</h5>
+		<h5>Посмотреть полную историю сокращения и очистить её</h5>
+		<br>
+		<div class="image-wrapper">
+				<img src="{% static 'img/1.jpeg' %}" width="300" height="200" class="img">
+		</div>
+</div>
+
+<div class = "text", align="center">
+	<h4 align="center">Жмай прямо сюда:</h4>
+	<h4 class="post-cat", align="center"><a href="{% url 'createforum' %}">Сформировать короткую ссылку</a></h4>
+</div>
+
+<div class = "post-wrap">
+		{% if forums %}
+			{% for el in forums %}
+				<div class="container1 mt-2">
+					<p>{{a}}</p>
+					<h4 class="post-title2">{{el.created}} </h4>
+				</div>
+			{% endfor %}
+		{% else %}
+		<p>У нас нет ссылок</p>
+		{% endif %}
+</div>
+
+  <br> <br>
+     <br>
+     <br>
+{% endblock %}

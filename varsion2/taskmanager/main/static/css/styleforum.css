@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+}
+
+.comment{
+     border: 1px solid #666;
+     margin: 10px;
+     padding: 10px;
+     font-family: Tahoma;
+     font-size: 12px;
+     border-radius: 4px;
+     box-shadow: 2px 2px 2px #999;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* Стиль заголовка */
+.header {
+    padding: 40px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+}
+
+/* Увеличьте размер шрифта элемента h1 */
+.header h1 {
+    font-size: 40px;
+}
+
+.post-wrap {
+	max-width: 1120px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.post-item {
+	padding: 10px;
+}
+.post-link {
+	text-decoration: none;
+	display: block;
+}
+.post-item-wrap {
+	overflow: hidden;
+	position: relative;
+}
+.post-item img {
+	display: block;
+	width: 100%;
+}
+.text-wrapper {
+	position: absolute;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 86%;
+	padding: 20px;
+    background: #FFEFD7;
+    transform: translate3d(-100%,0,0);
+    transition: transform .5s cubic-bezier(.33,.02,0,.93);
+}
+.post-item:hover .text-wrapper {
+	transform: translate3d(0,0,0);
+	transition: transform .5s cubic-bezier(.33,.02,0,.93) .3s;
+}
+.overlay {
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: #FFEFD7;
+    transform: translate3d(-100%,0,0);
+    transition: transform .4s cubic-bezier(.33,.02,0,.93) .2s;
+}
+.post-item:hover .overlay {
+	transform: translate3d(0,0,0);
+    transition: transform .5s cubic-bezier(.33,.02,0,.93);
+}
+.post-cat {
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	color: #000200;
+	font-weight: 500;
+}
+.post-cat2 {
+	margin-bottom: 5px;
+	color: #000200;
+	font-weight: 500;
+}
+.post-title {
+	font-size: 12px;
+	font-weight: 400;
+	color: #4A4A40;
+	font-style: italic;
+}
+.post-title2 {
+	font-size: 12px;
+	font-weight: 400;
+	color: #4A4A40;
+}
+@media (min-width: 768px) {
+	.post-item {
+		flex-basis: 50%;
+		flex-shrink: 0;
+	}
+}
+@media (min-width: 960px) {
+	.post-item {
+		flex-basis: 33.333333333%;
+	}
+}
+
+/* Стиль верхней панели навигации */
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Стиль ссылок панели навигации */
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+/* Выровненная по правому краю ссылка */
+.navbar a.right {
+    float: right;
+}
+
+/* Изменить цвет при наведении */
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Блоки */
+
+.container {
+    display: grid;
+	grid-gap: 4px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: repeat(2, 300px);
+}
+
+.container > div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.line_block {
+        width:800px;
+        height:400px;
+        background:#f1f1f1;
+        float:center;
+        margin: 0 30px 30px 0;
+        text-align:center;
+        padding: 190px;
+        }
+
+/* Контейнер колонки */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Sidebar/left column */
+.side {
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* Главный столбец */
+.main {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Поддельное изображение, только для этого примера */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Нижний колонтитул */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+}
+
+/* Адаптивный экран какой-то (если меньше 700 пикселей) */
+@media screen and (max-width: 700px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+ .container1 {   width: 75%;
+  border: 2px solid #ccc;
+  background-color: #eee;
+  border-radius: 5px; /* скругление углов блока */
+  padding: 16px; /* внутренние поля */
+  margin: 16px auto; /* внешние отступы */
+}
+
+  .container1 img {
+  float: left; /* обтекание слева */
+  margin-right: 20px; /* пространство между аватаркой и абзацем */
+  border-radius: 50%; /* скругляет аватарку */
+  width: 90px;
+}
+
+.container1 span {
+  font-size: 18px;
+  margin-right: 15px;
+}
+
+ @media (max-width: 450px) {
+  .container1 {
+    text-align: center;
+  }
+  .container1 img {
+    margin: auto;
+    float: none;
+    display: block;
+  }
+}
+
+.center-img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Адаптивный экран какой-то (если меньше 400 пикселей) */
+@media screen and (max-width: 400px) {
+    .navbar a {
+        float: none;
+        width:100%;
+    }
+}
