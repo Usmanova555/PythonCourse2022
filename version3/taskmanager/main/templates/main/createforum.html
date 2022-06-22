@@ -1,0 +1,34 @@
+{% extends 'main/base1.html'%}
+{% load static %}
+
+{% block title%}
+Создать отзыв
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/styleforum.css' %}" type="text/css">
+{% endblock %}
+
+
+{% block content%}
+		 <br>
+		 <h2 class="post-cat", align="center">Создать ссылку</h2>
+	<div class = "post-wrap">
+        {% if username %}
+          <form method="post" enctype="multipart/form-data">
+              <br>
+              {% csrf_token %}
+              {{ form.message }}<br>
+              <br>
+              <button type="submit" class = "btn btn-success">Сократить</button>
+              <span>{{error}}</span>
+          </form>
+        {% else %}
+            <p>Для сокращения ссылки Вам необходимо <a href="{% url 'login' %}">авторизироваться</a>.</p>
+        {%  endif %}
+  </div>
+
+
+  <br> <br>
+     <br>
+{% endblock %}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {{ title }}
+</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="/static/css/styleprofil.css" type="text/css">
+</head>
+
+<body>
+    <div class="header1">
+        <br>
+      <h1>Нет времени объяснять,</h1>
+        <h1>сокращай! ;)</h1>
+    </div>
+
+    <div class="navbar">
+      <a href="{% url 'forum' %}">Главная</a>
+      <a href="{% url 'profil' %}">All Links</a>
+
+      {% if user.is_loggin_in %}
+         <a href="{% url 'register' %}" >Регистрация</a>
+      {% else %}
+        {% if user.is_authenticated %}
+          <a href="{% url 'logout' %}" class="right">Выйти ({{user.username}})</a>
+        {% else %}
+          <a href="{% url 'register' %}">Регистрация</a>
+          <a href="{% url 'login' %}" class="right">Войти</a>
+        {% endif %}
+     {% endif %}
+    </div>
+<div>
+</div>
+<div class="container">
+<div id="main1">
+
+<br>
+<h2 class="post-cat" align="center">Ваши ссылки</h2>
+<br>
+
+ <div class="row" id="real-estates-detail">
+ <div class="col-lg-4 col-md-4 col-xs-12">
+ <div class="panel panel-default">
+ <div class="panel-heading">
+ <header class="panel-title">
+ <div class="text-center">
+ <strong>Пользователь сайта</strong>
+ </div>
+ </header>
+ </div>
+ <div class="panel-body">
+ <div class="text-center" id="author">
+     <br>
+ <p class="sosmed-author">
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="col-lg-8 col-md-8 col-xs-12">
+ <div class="panel">
+ <div class="panel-body">
+ <ul id="myTab" class="nav nav-pills">
+     <li class="post-cat1"><b>Сохранённые ссылки</b></li>
+ </ul>
+ <div id="myTabContent" class="tab-content">
+<hr>
+
+    {%  if lls %}
+         {% for el in lls%}
+            <div class = "alert alert-warning mt-3">
+                <h6 >{{ el.message }}</h6>
+                <p>{{ el.created }}</p>
+            </div>
+         {% endfor %}
+    {% else %}
+        <p>У вас нет записей</p>
+    {% endif %}
+
+<br><br><br><br><br><br><br><br><br><br>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+    <div class="navbar">
+        <br>
+    </div>
+
+</body>
+</html>
